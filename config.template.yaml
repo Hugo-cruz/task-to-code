@@ -1,0 +1,34 @@
+# Configuration template for task-to-code pipeline
+# Copy this file to config.yaml and fill in your actual values
+
+# Confluence/JIRA API Configuration
+confluence:
+  base_url: "https://your-domain.atlassian.net"  # Your Atlassian domain
+  username: "your-email@example.com"  # Your Atlassian account email
+  api_token: "your-api-token"  # Your Atlassian API token (not password)
+  # To get an API token, go to: https://id.atlassian.com/manage-profile/security/api-tokens
+
+# Project Configuration
+project:
+  repository_path: "/path/to/your/project"  # Local path to your project repository
+  exclude_patterns:  # Patterns to exclude when scanning project structure
+    - "*.git*"
+    - "node_modules"
+    - "*.pyc"
+    - "__pycache__"
+    - "*.log"
+    - "dist"
+    - "build"
+    - ".env"
+
+# Anthropic Claude API Configuration
+anthropic:
+  api_key: "your-anthropic-api-key"  # Your Anthropic API key
+  model: "claude-3-5-sonnet-20241022"  # Claude model to use
+  max_tokens: 4000  # Maximum tokens for responses
+
+# Output Configuration
+output:
+  generated_code_path: "./generated"  # Where to save generated code
+  test_path: "./tests"  # Where to save generated tests
+  backup_existing: true  # Whether to backup existing files before overwriting

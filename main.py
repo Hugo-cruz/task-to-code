@@ -10,7 +10,29 @@ from pathlib import Path
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent / 'src'))
 
-from src.pipeline import TaskToCodePipeline
+# Check if we're in the right environment and provide helpful error messages
+try:
+    from src.pipeline import TaskToCodePipeline
+except ImportError as e:
+    print("❌ Import Error: Required dependencies not found.")
+    print(f"   Details: {e}")
+    print()
+    print("💡 This usually means the virtual environment is not activated.")
+    print("   Please run one of the following:")
+    print()
+    print("   Option 1: Activate virtual environment manually")
+    print("   source venv/bin/activate")
+    print("   python main.py [command]")
+    print()
+    print("   Option 2: Use the activation script")
+    print("   source activate_env.sh")
+    print("   python main.py [command]")
+    print()
+    print("   Option 3: Install dependencies globally (not recommended)")
+    print("   pip install -r requirements.txt")
+    print()
+    print("📚 For more help, see README.md or run: python validate.py")
+    sys.exit(1)
 
 
 def main():

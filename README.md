@@ -56,10 +56,38 @@ task-to-code/
 
 ## Usage
 
+### Method 1: Wrapper Script (Recommended)
+
+The easiest way to use the pipeline is with the wrapper script that automatically handles the virtual environment:
+
+```bash
+# Process a JIRA issue
+./task-to-code.sh jira PROJ-123
+
+# Process a Confluence page
+./task-to-code.sh confluence 123456789
+
+# Update existing code
+./task-to-code.sh update "src/myfile.py" "Add error handling"
+```
+
+### Method 2: Manual Virtual Environment Activation
+
+```bash
+# Activate virtual environment
+source venv/bin/activate
+
+# Or use the activation helper
+source activate_env.sh
+
+# Then run commands
+python main.py jira PROJ-123
+```
+
 ### Process a JIRA Issue
 
 ```bash
-python main.py jira PROJ-123
+./task-to-code.sh jira PROJ-123
 ```
 
 This will:

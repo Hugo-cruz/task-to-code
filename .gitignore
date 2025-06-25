@@ -131,3 +131,9 @@ dmypy.json
 # Configuration files with sensitive data
 config.yaml
 .config.yaml
+
+# Generated code output directories
+generated/
+tests/generated/
+output/
+*.backup_*
